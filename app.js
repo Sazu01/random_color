@@ -8,7 +8,15 @@ function randomColor(){
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
-    return `rgb(${r}, ${g}, ${b})`;
+    
+    function rgbToHex(r, g, b) {
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+        return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+    }
+    return rgbToHex(r, g, b);
 };
 
 btn.addEventListener("click", () => {
